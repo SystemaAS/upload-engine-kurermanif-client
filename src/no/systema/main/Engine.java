@@ -45,15 +45,15 @@ public class Engine {
 	}
 	
 	public void execute(String[] args) throws Throwable {
-		long sleep = 300000;
-		long numberOfTimes = 288;
+		long sleep = 5000;
+		long numberOfTimes = 3;
 		
 		//TEST
-		if(args!=null && args.length>1){
-			if(args[1].equals("1")){
-				sleep = 5000; 
+		if(args!=null && args.length==1){
+			if(args[0].contains("prodUpload")){
+				sleep = 300000; 
 				/*every 5 minutes = 12 times per hour. 24hrs * 12 times = 288 times */
-				numberOfTimes = 3; 
+				numberOfTimes = 288; 
 			}
 		}
 		 
