@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
  * @author oscardelatorre 
  * @date March, 2020
  * 
+ * 
  * This class is entry point and driving force of the application
  * It calls a service (rest-template) in order to start with the uploading of one or several kurermanifest file payloads.
  * 
