@@ -45,15 +45,22 @@ public class Engine {
 	}
 	
 	public void execute(String[] args) throws Throwable {
-		long sleep = 5000;
-		long numberOfTimes = 3;
-		
 		//TEST
+		long sleep = 5000;
+		long numberOfTimes = 4;
+		//long sleep = 60000;
+		//long numberOfTimes = 1440;
+		
+		//PROD
 		if(args!=null && args.length==1){
 			if(args[0].contains("prodUpload")){
-				sleep = 300000; 
 				/*every 5 minutes = 12 times per hour. 24hrs * 12 times = 288 times */
-				numberOfTimes = 288; 
+				//sleep = 300000; 
+				//numberOfTimes = 288;
+				/*every 1 minute = 60 times per hour. 24hrs * 60 times = 1440 times */
+				sleep = 60000; 
+				numberOfTimes = 1440;
+				
 			}
 		}
 		
@@ -81,8 +88,9 @@ public class Engine {
 				//call rest controller to start polling of directories for file upload
 				RestTemplate restTemplate = new RestTemplate();
 				ResponseEntity<String> response = new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
-				
+				//logger.info("AAA");
 				response = restTemplate.getForEntity(uri, String.class);
+				//logger.info("BBB");
 				logger.info("response="+response);
 			} catch (Exception e) {
 				logger.info("There is space for improvements on indata..." + e.toString());
