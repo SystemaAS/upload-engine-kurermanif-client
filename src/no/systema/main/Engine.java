@@ -30,7 +30,7 @@ public class Engine {
 	/**
 	 * Call from prompt: 
 	 * TEST: java -jar upload-engine-kurermanif-client.jar http://localhost:8080/syjservicestn-expft/testUpload
-	 * PRODUCTION: java -jar upload-engine-kurermanif-client.jar http://localhost:8080/syjservicestn-expft/prodUpload?user=A53HUR
+	 * PRODUCTION: java -jar upload-engine-kurermanif-client.jar http://localhost:8080/syjservicestn-expft/prodUpload
 	 * 
 	 * The parameter [0] must be the url to the init rest_service on tomcat.
 	 * 
@@ -46,7 +46,7 @@ public class Engine {
 	
 	public void execute(String[] args) throws Throwable {
 		//TEST
-		long sleep = 5000;
+		long sleep = 8000;
 		long numberOfTimes = 4;
 		//long sleep = 60000;
 		//long numberOfTimes = 1440;
