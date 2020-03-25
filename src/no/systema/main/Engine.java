@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -92,10 +93,17 @@ public class Engine {
 				response = restTemplate.getForEntity(uri, String.class);
 				//logger.info("BBB");
 				logger.info("response="+response);
-			} catch (Exception e) {
-				logger.info("There is space for improvements on indata..." + e.toString());
-				e.printStackTrace();
-			}
+			} catch (HttpClientErrorException e) {
+				logger.error("uri.toString()" + " is unreachable..." + e.toString());
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+				logger.fatal("Unknown ..." + e2.toString());
+				
+			} 
+			
+			
+			
 	 	}
 	}
 }
