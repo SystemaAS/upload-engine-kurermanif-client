@@ -8,7 +8,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpClientErrorException;
@@ -75,7 +75,7 @@ public class Engine {
 	 }
 	 
 	class PollingService implements Runnable {
-		private Logger logger = Logger.getLogger(PollingService.class);
+		private Logger logger = LogManager.getLogger(PollingService.class);
 		private URI uri = null;
 		private int count = 0;
 		
